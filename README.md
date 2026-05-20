@@ -28,8 +28,8 @@
 
 ## 📌 Project Overview
 
-**Project Title:** `[Smart Adaptive Romm hub]`  
-**Group Name / Number:** `[Techwavers]`  
+**Project Title:** Smart Adaptive Romm hub  
+**Group Name / Number:** Techwavers  
 **Presentation Date:** 20 May 2026 — 10:00 to 15:00 (SAST)
 
 ---
@@ -62,8 +62,8 @@
 
 | Student Name | Student Number | Role / Responsibility |
 |---|---|---|
-| [Hillary Itlhabanyeng] | [230777465] | [Team Leader] |
-| [Athini Ngquke] | [22352302] | [Backend developer Lead] |
+| Hillary Itlhabanyeng | 230777465 | Team Leader |
+| Athini Ngquke | 22352302 | Backend developer Lead |
 | [Baatile Gerald Motau] | [230993508] | [Documentation Lead] |
 | [Wayne Simango] | [230237584] | [Hardware lead] |
 | [Tlou Masebe] | [230128521] | [Hardware analyst]|

@@ -155,32 +155,177 @@ Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-cond
 ### Main Firmware (e.g., `main.ino`)
 
 ```cpp
+#include <DHT.h>
+
+// --- Pin setup ---
+#define DHTPIN 6
+#define DHTTYPE DHT11
+#define LDR_PIN A0
+#define PIR_PIN 3
+#define LED_COOL 4
+#define LED_WARM 5
+#define LED_STATUS 13
+#define LED_ALERT 12
+
+// --- RGB LED pins ---
+int redPin = 10;
+int greenPin = 11;
+int bluePin = 12;
+
+// --- PIR calibration ---
+int calibrationTime = 30;
+long unsigned int lowIn;
+long unsigned int pause = 5000;
+boolean lockLow = true;
+boolean takeLowTime;
+
+DHT dht(DHTPIN, DHTTYPE);
+
 void setup() {
   Serial.begin(9600);
-  // Initialize sensors and pins here
+
+  // PIR setup
+  pinMode(PIR_PIN, INPUT);
+  pinMode(LED_STATUS, OUTPUT);
+  digitalWrite(PIR_PIN, LOW);
+
+  Serial.print("Calibrating PIR sensor ");
+  for (int i = 0; i < calibrationTime; i++) {
+    Serial.print(".");
+    delay(1000);
+  }
+  Serial.println(" done");
+  Serial.println("SENSOR ACTIVE");
+
+  // DHT + LEDs setup
+  dht.begin();
+  pinMode(LED_COOL, OUTPUT);
+  pinMode(LED_WARM, OUTPUT);
+  pinMode(LED_ALERT, OUTPUT);
+
+  // RGB LED setup
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+
+  Serial.println("Smart Room Adaptive Hub starting...");
+  delay(2000);
+}
+
+// Helper function to set RGB color
+void setColor(bool r, bool g, bool b) {
+  digitalWrite(redPin, r ? HIGH : LOW);
+  digitalWrite(greenPin, g ? HIGH : LOW);
+  digitalWrite(bluePin, b ? HIGH : LOW);
 }
 
 void loop() {
-  // Main logic here
+  // --- Motion detection ---
+  if (digitalRead(PIR_PIN) == HIGH) {
+    digitalWrite(LED_STATUS, HIGH);
+    if (lockLow) {
+      lockLow = false;
+      Serial.println("---");
+      Serial.print("Motion detected at ");
+      Serial.print(millis() / 1000);
+      Serial.println(" sec");
+    }
+    takeLowTime = true;
+  }
+
+  if (digitalRead(PIR_PIN) == LOW) {
+    digitalWrite(LED_STATUS, LOW);
+    if (takeLowTime) {
+      lowIn = millis();
+      takeLowTime = false;
+    }
+    if (!lockLow && millis() - lowIn > pause) {
+      lockLow = true;
+      Serial.print("Motion ended at ");
+      Serial.print((millis() - pause) / 1000);
+      Serial.println(" sec");
+    }
+  }
+
+  // --- Climate sensing ---
+  float humidity = dht.readHumidity();
+  float temperature = dht.readTemperature();
+
+  if (isnan(temperature) || isnan(humidity)) {
+    Serial.println("DHT sensor error!");
+    return;
+  }
+
+  if (temperature > 50.0) temperature = 0.0;
+  if (humidity > 100.0) humidity = 0.0;
+
+  Serial.print("Temp: ");
+  Serial.print(temperature);
+  Serial.print("C  Hum: ");
+  Serial.print(humidity);
+  Serial.print("%  ");
+
+  // Climate mode logic
+  if (temperature > 30.0) {
+    digitalWrite(LED_COOL, HIGH);
+    digitalWrite(LED_WARM, LOW);
+    digitalWrite(LED_ALERT, HIGH);
+    setColor(true, false, false); // Red
+    Serial.print("Mode: HOT  ");
+  } else if (temperature > 25.0) {
+    digitalWrite(LED_COOL, LOW);
+    digitalWrite(LED_WARM, HIGH);
+    digitalWrite(LED_ALERT, LOW);
+    setColor(true, true, false); // Yellow
+    Serial.print("Mode: WARM  ");
+  } else if (temperature >= 20.0) {
+    setColor(false, true, false); // Green
+    Serial.print("Mode: COMFORT  ");
+  } else {
+    setColor(false, false, true); // Blue
+    Serial.print("Mode: COOL  ");
+  }
+
+  // --- Light sensing ---
+  int lightRaw = analogRead(LDR_PIN);
+  int lightPercent = map(lightRaw, 0, 1023, 0, 100);
+  Serial.print("Light: ");
+  Serial.print(lightPercent);
+  Serial.print("%  ");
+
+  Serial.print("Motion: ");
+  Serial.println(digitalRead(PIR_PIN) == HIGH ? "YES" : "NO");
+
+  delay(2000);
 }
+
+
 ```
 
 ### Key Functions
 
-| Function Name | Description |
-|---|---|
-| `setup()` | Initializes hardware peripherals and serial communication |
-| `loop()` | Main execution loop |
-| `[yourFunction()]` | [Describe it] |
+| Function | Purpose | Key Actions | Output/Effect |
+| --- | --- | --- | --- |
+| ``setup()`` | Initializes system components | - Starts Serial communication<br>- Calibrates PIR sensor<br>- Configures pin modes<br>- Starts DHT11 sensor | System ready message in Serial Monitor; PIR calibration complete |
+| ``loop()`` | Main program loop (runs continuously) | - Reads PIR sensor for motion<br>- Reads DHT11 for temperature & humidity<br>- Reads LDR for light intensity<br>- Updates LEDs and RGB color based on conditions | Real-time monitoring of motion, climate, and light; LED and RGB feedback |
+| ``setColor(r,g,b)`` | Helper function to control RGB LED color | - Accepts boolean values for Red, Green, Blue<br>- Sets digital pins HIGH/LOW accordingly | RGB LED changes color to represent climate mode (Red, Yellow, Green, Blue) |
+| **Motion Logic** (inside ``loop()``) | Detects and logs motion events via PIR sensor | - Turns ``LED_STATUS`` ON/OFF<br>- Logs motion start/end times<br>- Uses lock/unlock mechanism | Serial output: “Motion detected at X sec” / “Motion ended at X sec” |
+| **Climate Logic** (inside ``loop()``) | Reads temperature & humidity, sets climate mode | - Activates LEDs (Cool, Warm, Alert)<br>- Maps temperature ranges to RGB colors<br>- Handles sensor errors | Serial output: Temp, Humidity, Mode (HOT/WARM/COMFORT/COOL) |
+| **Light Logic** (inside ``loop()``) | Reads ambient light via LDR sensor | - Converts raw analog value to percentage<br>- Prints light intensity to Serial Monitor | Serial output: “Light: XX%” |
 
 ---
 
 ## 🧪 Testing & Results
-
-| Test # | Description | Expected Result | Actual Result | Pass/Fail |
-|---|---|---|---|---|
-| 1 | [e.g. Sensor reads temperature] | [e.g. ±2°C accuracy] | [e.g. ±1.5°C] | ✅ Pass |
-| 2 | [e.g. Wi-Fi transmission] | [e.g. Every 10s] | | |
+| Test # | Description | Expected Results | Actual Results | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| 1 | **PIR Motion Detection** – Move in front of PIR sensor | ``LED_STATUS`` turns ON, Serial Monitor logs “Motion detected at X sec” | LED lit up, Serial Monitor displayed motion detection message | ✅ Pass |
+| 2 | **Motion End** – Stay still for >5 seconds | ``LED_STATUS`` turns OFF, Serial Monitor logs “Motion ended at X sec” | LED turned off after pause, Serial Monitor displayed motion ended message | ✅ Pass |
+| 3 | **Climate HOT Mode** – Warm DHT11 sensor (>30°C) | ``LED_COOL`` ON, ``LED_ALERT`` ON, RGB LED Red, Serial Monitor shows “Mode: HOT” | LEDs activated correctly, RGB LED turned Red, Serial Monitor showed HOT mode | ✅ Pass |
+| 4 | **Climate WARM Mode** – Temp between 25–30°C | ``LED_WARM`` ON, RGB LED Yellow, Serial Monitor shows “Mode: WARM” | Warm LED lit, RGB LED Yellow, Serial Monitor showed WARM mode | ✅ Pass |
+| 5 | **Climate COMFORT Mode** – Temp between 20–25°C | RGB LED Green, Serial Monitor shows “Mode: COMFORT” | RGB LED Green, Serial Monitor displayed COMFORT mode | ✅ Pass |
+| 6 | **Climate COOL Mode** – Temp <20°C | RGB LED Blue, Serial Monitor shows “Mode: COOL” | RGB LED Blue, Serial Monitor displayed COOL mode | ✅ Pass |
+| 7 | **Light Sensing** – Cover/uncover LDR | Serial Monitor shows light percentage (0–100%) | Light % values updated correctly in Serial Monitor | ✅ Pass |
+| 8 | **Sensor Error Handling** – Disconnect DHT11 | Serial Monitor shows “DHT sensor error!” | Error message displayed correctly | ✅ Pass |
 
 ---
 

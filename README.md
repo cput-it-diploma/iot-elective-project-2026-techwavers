@@ -63,7 +63,7 @@
 | Student Name | Student Number | Role / Responsibility |
 |---|---|---|
 | Hillary Itlhabanyeng | 230777465 | Team Leader |
-| Athini Ngquke | 22352302 | Backend developer Lead |
+| Athini Ngquke | 222352302 | Backend developer Lead |
 | Baatile Gerald Motau | 230993508 | Documentation Lead |
 | Wayne Simango | 230237584 | Hardware lead |
 | Tlou Masebe | 230128521 | Hardware analyst|

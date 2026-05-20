@@ -28,8 +28,8 @@
 
 ## 📌 Project Overview
 
-**Project Title:** `[Your Project Title Here]`  
-**Group Name / Number:** `[Group Name / Number]`  
+**Project Title:** `[Smart Adaptive Romm hub]`  
+**Group Name / Number:** `[Techwavers]`  
 **Presentation Date:** 20 May 2026 — 10:00 to 15:00 (SAST)
 
 ---
@@ -62,10 +62,11 @@
 
 | Student Name | Student Number | Role / Responsibility |
 |---|---|---|
-| [Name Surname] | [Student No.] | [e.g. Hardware Lead] |
-| [Name Surname] | [Student No.] | [e.g. Software Lead] |
-| [Name Surname] | [Student No.] | [e.g. Documentation Lead] |
-| [Name Surname] | [Student No.] | [e.g. Testing Lead] |
+| [Hillary Itlhabanyeng] | [230777465] | [Team Leader] |
+| [Name Surname] | [Student No.] | [Backend  Lead] |
+| [Name Surname] | [Student No.] | [Documentation Lead] |
+| [Name Surname] | [Student No.] | [Hardware analsyst] |
+| [Sinobawo Nkomo] | 
 
 ---
 

@@ -64,10 +64,10 @@
 |---|---|---|
 | Hillary Itlhabanyeng | 230777465 | Team Leader |
 | Athini Ngquke | 22352302 | Backend developer Lead |
-| [Baatile Gerald Motau] | [230993508] | [Documentation Lead] |
-| [Wayne Simango] | [230237584] | [Hardware lead] |
-| [Tlou Masebe] | [230128521] | [Hardware analyst]|
-| [Sinobawo Nkomo] | [223174602] | [Controller]|
+| Baatile Gerald Motau | 230993508 | Documentation Lead |
+| Wayne Simango | 230237584 | Hardware lead |
+| Tlou Masebe | 230128521 | Hardware analyst|
+| Sinobawo Nkomo | 223174602 | Controller|
 
 ---
 
@@ -80,12 +80,12 @@ Traditional residential spaces rely entirely on manual user intervention to cont
 The Smart Mood Hub: A low-cost, presence-aware, localized IoT ecosystem built inside a model smart home. By integrating non-visual infrared and thermodynamic sensors with an Arduino edge microcontroller, the system autonomously switches room lighting and ambient climate overlays in real time, creating an intuitive, self-optimizing environment that requires zero manual or cloud intervention.
 
 ### Objectives
-- [ Autonomous Environmental Adaptation
-To eliminate manual app or switch overhead by engineering an immediate, deterministic sensory loop that instantly shifts lighting and ambient "moods" based on real-time room data.] Objective 1
-- [Zero-Latency Energy Optimization
-To drastically reduce electricity waste by enforcing a strict software-level presence gating protocol that cuts all non-essential hardware load the moment a vacancy threshold is reached. ] Objective 2
-- [Privacy-First Edge Infrastructure
-To deliver an intelligent smart home experience that runs entirely on localized microcontrollers using non-visual sensors, proving that home automation can be secure, private, and highly affordable. ] Objective 3
+-  Autonomous Environmental Adaptation
+To eliminate manual app or switch overhead by engineering an immediate, deterministic sensory loop that instantly shifts lighting and ambient "moods" based on real-time room data. |Objective 1
+- Zero-Latency Energy Optimization
+To drastically reduce electricity waste by enforcing a strict software-level presence gating protocol that cuts all non-essential hardware load the moment a vacancy threshold is reached. | Objective 2
+- Privacy-First Edge Infrastructure
+To deliver an intelligent smart home experience that runs entirely on localized microcontrollers using non-visual sensors, proving that home automation can be secure, private, and highly affordable. | Objective 3
 
 ---
 
@@ -102,15 +102,15 @@ Our primary design decision centered on engineering a localized, hardware-based 
 
 | Component | Description | Quantity | Purpose |
 |---|---|---|---|
-| [Arduino Uno R3] | [An open-source, 8-bit microcontroller board based on the ATmega328P processor. It features 14 digital input/output pins, 6 analog inputs, and a 16 MHz ceramic resonator.] | [1] | [Serves as the central "Logic Core" or brain of the entire project. It ingests raw data streams from the sensor array, evaluates the environmental thresholds, and executes the firmware code to trigger the visual outputs.] |
-| [DHT11 Sensor] | [: A basic, ultra-low-cost digital temperature and humidity sensor. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air, outputting a digital signal on a single data pin.] | [1] | [Handles atmospheric telemetry. It samples the ambient room temperature every 2 seconds, feeding data into the Arduino to determine whether the environment needs to trigger Warm Mode, Chilled Mode, or stay in the Comfort Zone.] |
-| [HC-SR501 Passive Infrared (PIR) Motion Sensor] | [A non-visual electronic sensor that measures infrared light radiating from objects in its field of view. It features adjustable sensitivity and delay potentiometers on the back of the module.] | [1] | [Acts as the system’s "Master Energy Gate." It continuously scans the room for human presence up to 7 meters away to trigger the active environmental loop or initiate the 5-second power-save sleep state when the room is vacant.] |
-| [High-Efficiency LED Array (White, Red, Blue)] |[Standard 5mm light-emitting diodes that emit localized visible wavelengths when forward-biased.] | [2]| [White LED (1x): Simulates the primary ceiling light for physical room visibility when occupancy is confirmed.
+| Arduino Uno R3 | An open-source, 8-bit microcontroller board based on the ATmega328P processor. It features 14 digital input/output pins, 6 analog inputs, and a 16 MHz ceramic resonator. | 1 | Serves as the central "Logic Core" or brain of the entire project. It ingests raw data streams from the sensor array, evaluates the environmental thresholds, and executes the firmware code to trigger the visual outputs. |
+| DHT11 Sensor |  A basic, ultra-low-cost digital temperature and humidity sensor. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air, outputting a digital signal on a single data pin. | 1 | Handles atmospheric telemetry. It samples the ambient room temperature every 2 seconds, feeding data into the Arduino to determine whether the environment needs to trigger Warm Mode, Chilled Mode, or stay in the Comfort Zone. |
+| HC-SR501 Passive Infrared (PIR) Motion Sensor | A non-visual electronic sensor that measures infrared light radiating from objects in its field of view. It features adjustable sensitivity and delay potentiometers on the back of the module. | 1 | Acts as the system’s "Master Energy Gate." It continuously scans the room for human presence up to 7 meters away to trigger the active environmental loop or initiate the 5-second power-save sleep state when the room is vacant. |
+| High-Efficiency LED Array (White, Red, Blue) |Standard 5mm light-emitting diodes that emit localized visible wavelengths when forward-biased. | 2| White LED (1x): Simulates the primary ceiling light for physical room visibility when occupancy is confirmed.
 
 Red LED (1x): Acts as the "Warm Mode" indicator to visually simulate a residential heating system turning on.
 
-Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-conditioning unit cooling the space.]|
-| [Solderless Breadboard & Premium Jumper Wires] | [A plastic, reusable terminal testing board alongside an assortment of male-to-male and male-to-female solid-core jumper wires.] | [2] | [ Establishes the physical parallel data bus and shared power/ground rails ($5V$ and $GND$). It links all peripheral sensors, displays, and actuators to the Arduino microcontroller pins cleanly without permanent solder joints.] |
+Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-conditioning unit cooling the space.|
+| Solderless Breadboard & Premium Jumper Wires] | A plastic, reusable terminal testing board alongside an assortment of male-to-male and male-to-female solid-core jumper wires. | 2 |  Establishes the physical parallel data bus and shared power/ground rails ($5V$ and $GND$). It links all peripheral sensors, displays, and actuators to the Arduino microcontroller pins cleanly without permanent solder joints. |
 
 ---
 
@@ -118,10 +118,10 @@ Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-cond
 
 | Tool / Platform | Purpose |
 |---|---|
-| [Arduino IDE] | [Acts as the primary development platform for writing, compiling, and uploading the C++ firmware. It was used to write the sensor tracking logic and directly flash the compiled binary code onto the ATmega328P microcontroller chip via USB.] |
-| [Wokwi (IoT Virtual Lab)] | [Served as the critical digital twin simulation platform before physical circuit assembly. It was used to virtually wire the Arduino Uno, the PIR sensor, and the DHT11 sensor to test the C++ firmware. Simulating the logic matrix in Wokwi helped identify and resolve pin-sharing conflicts safely without risking hardware damage.] |
-| [DHT Sensor Library (by Adafruit)] | [Handles data communication with the atmospheric sensor. It abstracts the complex bit-streaming protocol of the DHT11, allowing the Arduino to instantly read ambient temperature values via a single, low-overhead software function.] |
-| [YouTube] | [Utilized as a vital technical research platform during the prototyping phase. It was used to analyze component datasheets, study video demonstrationn and research best-practice calibration methods for isolating the DHT11 sensor from hardware heat signatures.] |
+| Arduino IDE | Acts as the primary development platform for writing, compiling, and uploading the C++ firmware. It was used to write the sensor tracking logic and directly flash the compiled binary code onto the ATmega328P microcontroller chip via USB. |
+| Wokwi (IoT Virtual Lab) | Served as the critical digital twin simulation platform before physical circuit assembly. It was used to virtually wire the Arduino Uno, the PIR sensor, and the DHT11 sensor to test the C++ firmware. Simulating the logic matrix in Wokwi helped identify and resolve pin-sharing conflicts safely without risking hardware damage. |
+| DHT Sensor Library (by Adafruit) | Handles data communication with the atmospheric sensor. It abstracts the complex bit-streaming protocol of the DHT11, allowing the Arduino to instantly read ambient temperature values via a single, low-overhead software function. |
+| YouTube | Utilized as a vital technical research platform during the prototyping phase. It was used to analyze component datasheets, study video demonstrationn and research best-practice calibration methods for isolating the DHT11 sensor from hardware heat signatures. |
 
 ---
 

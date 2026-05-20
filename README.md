@@ -110,7 +110,7 @@ Our primary design decision centered on engineering a localized, hardware-based 
 Red LED (1x): Acts as the "Warm Mode" indicator to visually simulate a residential heating system turning on.
 
 Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-conditioning unit cooling the space.|
-| Solderless Breadboard & Premium Jumper Wires] | A plastic, reusable terminal testing board alongside an assortment of male-to-male and male-to-female solid-core jumper wires. | 2 |  Establishes the physical parallel data bus and shared power/ground rails ($5V$ and $GND$). It links all peripheral sensors, displays, and actuators to the Arduino microcontroller pins cleanly without permanent solder joints. |
+| Solderless Breadboard & Premium Jumper Wires | A plastic, reusable terminal testing board alongside an assortment of male-to-male and male-to-female solid-core jumper wires. | 2 |  Establishes the physical parallel data bus and shared power/ground rails ($5V$ and $GND$). It links all peripheral sensors, displays, and actuators to the Arduino microcontroller pins cleanly without permanent solder joints. |
 
 ---
 
@@ -118,10 +118,10 @@ Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-cond
 
 | Tool / Platform | Purpose |
 |---|---|
-| Arduino IDE | Acts as the primary development platform for writing, compiling, and uploading the C++ firmware. It was used to write the sensor tracking logic and directly flash the compiled binary code onto the ATmega328P microcontroller chip via USB. |
-| Wokwi (IoT Virtual Lab) | Served as the critical digital twin simulation platform before physical circuit assembly. It was used to virtually wire the Arduino Uno, the PIR sensor, and the DHT11 sensor to test the C++ firmware. Simulating the logic matrix in Wokwi helped identify and resolve pin-sharing conflicts safely without risking hardware damage. |
-| DHT Sensor Library (by Adafruit) | Handles data communication with the atmospheric sensor. It abstracts the complex bit-streaming protocol of the DHT11, allowing the Arduino to instantly read ambient temperature values via a single, low-overhead software function. |
-| YouTube | Utilized as a vital technical research platform during the prototyping phase. It was used to analyze component datasheets, study video demonstrationn and research best-practice calibration methods for isolating the DHT11 sensor from hardware heat signatures. |
+| Arduino IDE | Acts as the primary development platform for writing, compiling, and uploading the C++ firmware. It was used to write the sensor tracking logic and directly flash the compiled binary code onto the ATmega328P microcontroller chip via USB |
+| Wokwi (IoT Virtual Lab) | Served as the critical digital twin simulation platform before physical circuit assembly. It was used to virtually wire the Arduino Uno, the PIR sensor, and the DHT11 sensor to test the C++ firmware. Simulating the logic matrix in Wokwi helped identify and resolve pin-sharing conflicts safely without risking hardware damage |
+| DHT Sensor Library (by Adafruit) | Handles data communication with the atmospheric sensor. It abstracts the complex bit-streaming protocol of the DHT11, allowing the Arduino to instantly read ambient temperature values via a single, low-overhead software function |
+| YouTube | Utilized as a vital technical research platform during the prototyping phase. It was used to analyze component datasheets, study video demonstrationn and research best-practice calibration methods for isolating the DHT11 sensor from hardware heat signatures |
 
 ---
 
@@ -333,8 +333,10 @@ void loop() {
 
 | Challenge Encountered | Solution Applied |
 |---|---|
-| [e.g. Wi-Fi connection drops] | [e.g. Added reconnect logic] |
-| [e.g. Noisy sensor readings] | [e.g. Applied moving average filter] |
+| Slow Sensor Polling vs. System Responsiveness
+The DHT11 climate sensor requires a relatively slow processing cycle (sampling only once every 1–2 seconds). If the Arduino code loops too quickly without proper timing management, it can cause data reading errors, system freezes, or laggy motion detection from the high-speed PIR sensor.| We implemented non-blocking timing delays in the firmware code. Instead of using the restrictive delay() function which pauses the whole microcontroller, the system paces its climate sampling independently, allowing the PIR motion tracking pin to remain highly responsive and achieve sub-150ms execution loops. |
+| Component Voltage Drops (Micro-Brownouts)
+Running multiple high-output LEDs (White, Red, and Blue) simultaneously from a single Arduino Uno board can pull too much current at once. During early testing, this sudden power draw caused micro-voltage drops across the power rails, resulting in unstable readings from the DHT11 sensor.| We stabilized the circuit by grouping all components onto shared, dedicated power and ground distribution rails on the breadboard, back-linked directly to the regulated 5V pin of the Arduino. Additionally, we added high-tolerance 220$\Omega$ current-limiting resistors to each LED to regulate the exact milliamp draw and protect the MCU pins. |
 
 ---
 

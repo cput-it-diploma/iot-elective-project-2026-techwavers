@@ -127,7 +127,7 @@ Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-cond
 
 ## 🔌 Circuit Diagram / Wiring
 
-![Circuit Diagram](IMG_0880.png)
+![Circuit Diagram](Images/IMG_0880.png)
 
 | Component Pin | Microcontroller Pin | Notes |
 |---|---|---|
@@ -145,7 +145,7 @@ Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-cond
 ### Step 2: [Construction phase]
 > _The rough wooden piece we had was the most suitable for the foundation because of the quality and the weight it carried.It had the power to carry the rest of the cardboards that we were going to use as the house walls.It was also going to be helpful when we are taking the house on campus for our final presentation, it would effectively carry all the house and system components without messing up anything.
 > We used the glue to attach the the cardboards that acts as the walls of the house to our wooden piece that is our foundation.We also used a collection of white tapes and plastic bottles for the windows of the house so that the light of the LEDS inside can also be visible from outside._
-![Construction](7078B2EA-061A-48BA-9E2C-8BA679223A0A.jpeg)
+![Construction](Images/7078B2EA-061A-48BA-9E2C-8BA679223A0A.jpeg)
 
 ### Step 2: [System components placement phase]
 > _The team that was working on building the house had to wait for the development and assembling team to work on the code, assemble all the necessary components and testing to make sure the system is properly functioning, before they can place the system circuit and components inside the house.
@@ -153,7 +153,7 @@ Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-cond
 > The only two items that we decided to place in the wall of the house and outside the house was the PIR motion detector and DHT11 sensor for our demonstration and testing purposes, but in a real house it must be inside because this is a system that focuses on the inside of the house.
 > With the help of the development and assembling team, the system had to be tested again inside the house to make sure that it is still functioning properly.
 > Below is the final look of the house with the system inside.You can also access the video of the house on You tube by clicking the link ._
-![Final building results](IMG_0870.jpeg)
+![Final building results](Images/IMG_0870.jpeg)
 ## 🖥️ Code Documentation
 
 ### Main Firmware (e.g., `main.ino`)

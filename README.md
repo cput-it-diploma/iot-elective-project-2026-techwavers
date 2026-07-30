@@ -314,7 +314,7 @@ void loop() {
 ```
 ### **PROCESS OF ASSEMBLING SYSTEM COMPONENTS [IMAGES]**
 ## **PIR Motion detector**
-![PIR MOTION DETECTOR]()
+![PIR MOTION DETECTOR](Images/WhatsAppImage2026-07-31at01.29.21.jpeg)
 >_The our process started by doing the research on the You Tube platform based on the functionalities our system needed to demonstrate.
 >We started by working on the motion detector and it was one of the easiest functionalities.
 >We connected the motion sensor pins in the Arduino board using the jumper wires.

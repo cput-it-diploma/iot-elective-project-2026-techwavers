@@ -127,7 +127,7 @@ Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-cond
 ![CODE](Images/Screenshot2026-07-30222454.png)
 ![CODE](Images/Screenshot2026-07-30222506.png)
 ![CODE](Images/Screenshot2026-07-30222537.png)
-![CODE](Images/IMG_0880.png)
+![CODE](Images/Screenshot2026-07-30222438.png)
 
 ---
 

@@ -155,9 +155,9 @@ Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-cond
 ### Step 2: [System components placement phase]
 > _The team that was working on building the house had to wait for the development and assembling team to work on the code, assemble all the necessary components and testing to make sure the system is properly functioning, before they can place the system circuit and components inside the house.
 > All other system components had to be placed inside the house for safety purposes.
-> The only item that we decide to place out the wall of the house was the motion detector for our presentation and demonstration purposes, but in a real house it must be inside because this is a system that focuses on the inside of the house.
+> The only two items that we decided to place in the wall of the house and outside the house was the PIR motion detector and DHT11 sensor for our demonstration and testing purposes, but in a real house it must be inside because this is a system that focuses on the inside of the house.
 > With the help of the development and assembling team, the system had to be tested again inside the house to make sure that it is still functioning properly.
-> Below is the final look of the house with the system inside._
+> Below is the final look of the house with the system inside.You can also access the video of the house on You tube by clicking the link ._
 ![Final building results]()
 ## 🖥️ Code Documentation
 

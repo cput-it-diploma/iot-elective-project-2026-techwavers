@@ -111,6 +111,7 @@ Red LED (1x): Acts as the "Warm Mode" indicator to visually simulate a residenti
 
 Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-conditioning unit cooling the space.|
 | Solderless Breadboard & Premium Jumper Wires | A plastic, reusable terminal testing board alongside an assortment of male-to-male and male-to-female solid-core jumper wires. | 2 |  Establishes the physical parallel data bus and shared power/ground rails ($5V$ and $GND$). It links all peripheral sensors, displays, and actuators to the Arduino microcontroller pins cleanly without permanent solder joints. |
+![System Workflow](IMG_0881.png)
 
 ---
 

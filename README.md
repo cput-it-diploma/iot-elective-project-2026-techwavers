@@ -326,12 +326,14 @@ void loop() {
 ![DHT11 Humidity sensor & PIR motion detector]()
 >_.After we saw that the motion detector is properly working we started our research on the DHT11 Humidity sensor, which was the most challenging.
 >We had several LED lights we had to add besides the one we already had for the motion detector for different temperature ranges.
->We had thought that it was going to be possible to use the Arduino board with all the sensors but because of the number of pins available on the Arduino board that we also needed by the PIR motion detector, it would be impossible.
+>We had thought that it was going to be possible to use the Arduino board with all the sensors but because of the number of pins available on the Arduino board that were also needed by the PIR motion detector, it would be impossible.
 >We started learning how to connect pins on the Arduino board through the white breadboard but in the process we ruined the connection of the PIR motion detector.
 >We finally managed to connect the humidity sensor with the Arduino board through the white breadboard.
 >We had to fix the PIR motion detector functionality.
->We combined both the code for the PIR motion detector and the one for the DHT11 Humidity, we also had to do some debugging and adjustments so that both codes can effectively function using one Arduino board and the breadboard without disturbing the functionality of one another.
->We later worked on the LED light, tested the integrated version of the system, then handed it over to the team that was building the house for placement and measurements.
+>We combined both the code for the PIR motion detector and the one for the DHT11 Humidity, we also had to do some debugging and adjustments to do, so that both codes can effectively function using one Arduino board and the breadboard without disturbing the functionality of one another.
+>We later worked on the LED lights, and used one LED light for all the different LED colours we wanted for different temperature ranges/states.
+>We tested the integrated version of the system, then handed it over to the team that was building the house for placement and measurements.
+>We conducted placement testing at the end.
 >Above is the complete version of the system.
 
 ### Key Functions

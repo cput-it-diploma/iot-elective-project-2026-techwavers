@@ -138,13 +138,17 @@ Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-cond
 
 ## 🏭 Build Process (with photos)
 
-### Step 1: [Step Title]
-> _Description of what was done._
+### Step 1: [Planning phase]
+![Building plan](Images/52FE1964-D434-4256-92B2-606E2AD61FCE.jpeg)
+> _Three members in our team were working on th building process of the house.This is a planning phase where they had to decide on the architecture of the house, the placements of the circuit and the rest of the system components.They had to position them in certain areas where the connection will not be distracted. They also had to be mindful of how they use the building material because we had a combination of the cardboards and wood._
+> 
 
 ![Step 1 Photo](images/build_step1.jpg)
 
-### Step 2: [Step Title]
-> _Description of what was done._
+### Step 2: [Construction phase]
+> _The rough wooden piece we had was the most suitable for the foundation because of the quality and the weight it carried.It had the power to carry the rest of the cardboards that we were going to use as the house walls.IT was also going to be helpful when we are taking the house on campus for our final presentation, it would effectively carry all the house and system components without messing up anything.
+> We used the glue to attach the the cardboards that acts as the walls of the house to our wooden piece that is our foundation.We also used a collection of white tapes and plastic bottles for the windows of the house so that the light of the LEDS inside can also be visible from outside._
+![Construction]()
 
 ![Step 2 Photo](images/build_step2.jpg)
 

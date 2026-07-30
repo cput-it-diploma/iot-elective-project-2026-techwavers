@@ -127,7 +127,7 @@ Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-cond
 
 ## 🔌 Circuit Diagram / Wiring
 
-![Circuit Diagram](images/circuit_diagram.png)
+![Circuit Diagram](IMG_0880.png)
 
 | Component Pin | Microcontroller Pin | Notes |
 |---|---|---|

@@ -323,7 +323,7 @@ void loop() {
 >Below is the PIR motion detector connected to the Arduino._
 
 ## **DHT11 Humidity sensor**
-![DHT11 Humidity sensor & PIR motion detector](Images/WhatsAppImage 2026-07-31at01.28.13.jpeg)
+![DHT11 Humidity sensor & PIR motion detector](Images/WhatsAppImage2026-07-31at01.28.13.jpeg)
 >_.After we saw that the motion detector is properly working we started our research on the DHT11 Humidity sensor, which was the most challenging.
 >We had several LED lights we had to add besides the one we already had for the motion detector for different temperature ranges.
 >We had thought that it was going to be possible to use the Arduino board with all the sensors but because of the number of pins available on the Arduino board that were also needed by the PIR motion detector, it would be impossible.
@@ -335,7 +335,7 @@ void loop() {
 >We tested the integrated version of the system, then handed it over to the team that was building the house for placement and measurements.
 >We conducted placement testing at the end.
 >Above is the complete version of the system.
-![DHT11 Humidity sensor & PIR motion detector results on the monitor](Images/WhatsAppImage 2026-07-31at01.28.13.jpeg)
+![DHT11 Humidity sensor & PIR motion detector results on the monitor](Images/WhatsAppImage2026-07-31at01.31.39.jpeg)
 ### Key Functions
 
 | Function | Purpose | Key Actions | Output/Effect |

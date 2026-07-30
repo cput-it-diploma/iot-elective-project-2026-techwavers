@@ -125,7 +125,7 @@ Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-cond
 ## Code development on Arduino IDE[Photos]
 ![CODE](Images/Screenshot2026-07-30222417.png)
 ![CODE](Images/Screenshot2026-07-30222454.png)
-![CODE](Images/IMG_0880.png)
+![CODE](Images/Screenshot2026-07-30222506.png)
 ![CODE](Images/IMG_0880.png)
 ![CODE](Images/IMG_0880.png)
 

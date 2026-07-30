@@ -124,7 +124,7 @@ Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-cond
 | YouTube | Utilized as a vital technical research platform during the prototyping phase. It was used to analyze component datasheets, study video demonstrationn and research best-practice calibration methods for isolating the DHT11 sensor from hardware heat signatures |
 ## Code development on Arduino IDE[Photos]
 ![CODE](Images/Screenshot2026-07-30222417.png)
-![CODE](Images/IMG_0880.png)
+![CODE](Images/Screenshot2026-07-30222454.png)
 ![CODE](Images/IMG_0880.png)
 ![CODE](Images/IMG_0880.png)
 ![CODE](Images/IMG_0880.png)

@@ -122,6 +122,12 @@ Blue LED (1x): Acts as the "Chilled Mode" indicator to simulate an HVAC air-cond
 | Wokwi (IoT Virtual Lab) | Served as the critical digital twin simulation platform before physical circuit assembly. It was used to virtually wire the Arduino Uno, the PIR sensor, and the DHT11 sensor to test the C++ firmware. Simulating the logic matrix in Wokwi helped identify and resolve pin-sharing conflicts safely without risking hardware damage |
 | DHT Sensor Library (by Adafruit) | Handles data communication with the atmospheric sensor. It abstracts the complex bit-streaming protocol of the DHT11, allowing the Arduino to instantly read ambient temperature values via a single, low-overhead software function |
 | YouTube | Utilized as a vital technical research platform during the prototyping phase. It was used to analyze component datasheets, study video demonstrationn and research best-practice calibration methods for isolating the DHT11 sensor from hardware heat signatures |
+## Code development on Arduino IDE[Photos]
+![CODE](Images/IMG_0880.png)
+![CODE](Images/IMG_0880.png)
+![CODE](Images/IMG_0880.png)
+![CODE](Images/IMG_0880.png)
+![CODE](Images/IMG_0880.png)
 
 ---
 
@@ -346,7 +352,8 @@ Running multiple high-output LEDs (White, Red, and Blue) simultaneously from a s
 
 ## 🎥 Project Demonstration
 
-- 📹 **Demo Video:** [Insert link here]
+- 📹 **Demo Video:** [Insert link here](https://youtube.com/shorts/V-qVwta3gUU?si=XBIRh9HVGf3iYEZd)
+- 📹 **Final building results:** [Click here](https://youtube.com/shorts/zQEwxSNei3I?si=ZHB8UdIi7gCJmCi-)
 - 📊 **Presentation Slides:** [Insert link here]
 - 🔗 **Live Dashboard (if applicable):** [Insert link here]
 
@@ -354,8 +361,8 @@ Running multiple high-output LEDs (White, Red, and Blue) simultaneously from a s
 
 ## 📚 References
 
-1. [Reference Title](https://link-to-reference.com) — _Brief description_
-2. [Reference Title](https://link-to-reference.com) — _Brief description_
+1. [PIR Motion Sensor with Arduino](https://youtu.be/FxaTDvs34mM?si=AnpTYXj2F1acGXEs) — _It is a guide on how to connect a PIR motion detector sensor to an Arduino, teaching us about the important pins that must be connected for functionality_
+2. [DHT11 Temperature & Humidity sensor with Arduino](https://youtu.be/OogldLc9uYc?si=ZoXjFGv1witxI64A) — _Brief description and demonstration  on how to connect use the breadboard to connect the humidity sensor to an Arduino, teaches more about important pins, where to position the DHT11 humidity sensor on your Arduino and pins and ports. _
 
 ---
 

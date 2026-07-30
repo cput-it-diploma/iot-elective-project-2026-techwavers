@@ -376,7 +376,7 @@ Running multiple high-output LEDs (White, Red, and Blue) simultaneously from a s
 
 ## 🎥 Project Demonstration
 
-- 📹 **Demo Video:** [Insert link here](https://youtube.com/shorts/V-qVwta3gUU?si=XBIRh9HVGf3iYEZd)
+- 📹 **Demo Video:** [Click here](https://youtube.com/shorts/V-qVwta3gUU?si=XBIRh9HVGf3iYEZd)
 - 📹 **Final building results:** [Click here](https://youtube.com/shorts/zQEwxSNei3I?si=ZHB8UdIi7gCJmCi-)
 - 📊 **Presentation Slides:** [Images/TECHWAVERS Presentation.pptx]
 - 🔗 **Live Dashboard (if applicable):** [Insert link here]

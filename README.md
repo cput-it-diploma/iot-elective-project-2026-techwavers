@@ -312,6 +312,27 @@ void loop() {
 
 
 ```
+### **PROCESS OF ASSEMBLING SYSTEM COMPONENTS [IMAGES]**
+## **PIR Motion detector**
+![PIR MOTION DETECTOR]()
+>_The our process started by doing the research on the You Tube platform based on the functionalities our system needed to demonstrate.
+>We started by working on the motion detector and it was one of the easiest functionalities.
+>We connected the motion sensor pins in the Arduino board using the jumper wires.
+>We added the LED light so that we can be able to see when the motion has been detected, and configured our code to perform this function by specifying the pin our LED light is connected in and the pins where we inserted the jumper wires from the motion sensor to arduino.
+>We also specified the time the system has to wait when restarting and the duration the time has to be on and the duration the sensor has to wait before detecting new motion.
+>Below is the PIR motion detector connected to the Arduino._
+
+## **DHT11 Humidity sensor**
+![DHT11 Humidity sensor & PIR motion detector]()
+>_.After we saw that the motion detector is properly working we started our research on the DHT11 Humidity sensor, which was the most challenging.
+>We had several LED lights we had to add besides the one we already had for the motion detector for different temperature ranges.
+>We had thought that it was going to be possible to use the Arduino board with all the sensors but because of the number of pins available on the Arduino board that we also needed by the PIR motion detector, it would be impossible.
+>We started learning how to connect pins on the Arduino board through the white breadboard but in the process we ruined the connection of the PIR motion detector.
+>We finally managed to connect the humidity sensor with the Arduino board through the white breadboard.
+>We had to fix the PIR motion detector functionality.
+>We combined both the code for the PIR motion detector and the one for the DHT11 Humidity, we also had to do some debugging and adjustments so that both codes can effectively function using one Arduino board and the breadboard without disturbing the functionality of one another.
+>We later worked on the LED light, tested the integrated version of the system, then handed it over to the team that was building the house for placement and measurements.
+>Above is the complete version of the system.
 
 ### Key Functions
 
@@ -355,7 +376,7 @@ Running multiple high-output LEDs (White, Red, and Blue) simultaneously from a s
 
 - 📹 **Demo Video:** [Insert link here](https://youtube.com/shorts/V-qVwta3gUU?si=XBIRh9HVGf3iYEZd)
 - 📹 **Final building results:** [Click here](https://youtube.com/shorts/zQEwxSNei3I?si=ZHB8UdIi7gCJmCi-)
-- 📊 **Presentation Slides:** [Insert link here]
+- 📊 **Presentation Slides:** [Images/TECHWAVERS Presentation.pptx]
 - 🔗 **Live Dashboard (if applicable):** [Insert link here]
 
 ---
